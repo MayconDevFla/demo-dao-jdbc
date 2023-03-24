@@ -7,9 +7,13 @@ import model.entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
         /*Department obj = new Department(1, "Books");
         Seller seller = new Seller(21, "Bob", "Bob@gmail.com", new Date(), 3000.0, obj);*/
 
@@ -44,8 +48,19 @@ public class Program {
         System.out.println("\n=== Test 5: Seller update =====");
 
         seller = sellerDao.findById(1);
-        seller.setName("Martha Waine");
+        seller.setName("Mike");
+        seller.setEmail("mike@hotmail.com");
         sellerDao.update(seller);
         System.out.println("Update completed!!");
+
+        System.out.println("\n=== Test 6: Seller delete =====");
+
+
+        System.out.println("Digite um id para ser deletado do banco de dados: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("deleted completed!!");
+
+        sc.close();
     }
 }
